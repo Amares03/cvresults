@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{
 
 
 // API
-router.post('/api/user',controller.create)
-
+router.post('/api/user',controller.create);
+router.get('/icladdis/viewresult/:id',controller.find);
 
 module.exports = router;
