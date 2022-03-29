@@ -39,3 +39,16 @@ exports.find = (req,res) =>{
     })
 } 
 
+exports.detail = (req,res) =>{
+    if(!req.body){
+        res.status(400).send({message: 'user cannot be emity'});
+    }
+    const id = req.params.id;
+    userdb
+    .findById(id)
+    .then(data =>{
+        res.render('detail',{user:data});
+    }).catch(err =>{
+        res.status(500).send({message:'error while finding'});
+    })
+} 
