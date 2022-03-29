@@ -33,8 +33,9 @@ exports.find = (req,res) =>{
     userdb
     .findById(id)
     .then(data =>{
-        res.send(data);
+        res.render('index',{user:data});
     }).catch(err =>{
         res.status(500).send({message:'error while finding'});
     })
 } 
+
