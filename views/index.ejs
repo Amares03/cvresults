@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-</head>
-<body>
+<%- include('include/_header') %>
    <div class="big-container">
     <h4 class="clinic">International Clinical Laboratories</h4>
        <div class="container">
@@ -15,31 +6,31 @@
            <div class="data-container">
                <div class="inner-container">
                 <p class="title">Full Name</p>
-                <p class="data">Amir Siraj</p>
+                <p class="data"><%= user.fullName%></p>
                </div>
                <div class="inner-container">
                 <p class="title">Nationality</p>
-                <p class="data">Amir Siraj</p>
+                <p class="data"><%= user.nationality%></p>
                </div>
                <div class="inner-container">
                 <p class="title">Passport number</p>
-                <p class="data">Amir Siraj</p>
+                <p class="data"><%= user.passportNum%></p>
                </div>
                <div class="inner-container">
                 <p class="title">Confirmation number</p>
-                <p class="data">Amir Siraj</p>
+                <p class="data"><%= user.sampleId%></p>
                </div>
                <div class="inner-container">
                 <p class="title">Specimen collected date</p>
-                <p class="data">Amir Siraj</p>
+                <p class="data"><%= user.collectedDate%></p>
                </div>
                <div class="inner-container">
                 <p class="title">Result issued date</p>
-                <p class="data">Amir Siraj</p>
+                <p class="data"><%= user.resultDate%></p>
                </div>
                <div class="inner-container">
                 <p class="title">Result</p>
-                <p class="data">Amir Siraj</p>
+                <p class="data"><%= user.result%></p>
                </div>
                 <button class="button">Get Full Certificate</button>
            </div>

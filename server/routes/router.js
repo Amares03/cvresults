@@ -1,13 +1,12 @@
 const express = require('express');
 const controller = require('../controller/controller');
+const render = require('../services/render');
 
 
 
 const router = express.Router();
 
-router.get('/',(req,res)=>{
-    res.render('index');
-});
+router.get('/',render.homeRout);
 
 
 // API
