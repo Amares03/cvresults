@@ -2,12 +2,16 @@ const express = require('express');
 const path=require('path');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
+const connectDB = require('./server/database/connection');
 
 
 const app = express();
 
 dotenv.config({path:'config.env'});
 const PORT = 8080;
+
+//connect to DB
+connectDB();
 
 // parse request to the body parser
 app.use(bodyParser.urlencoded({extended:true}));
