@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-exports.homeRout = (req,res)=>{
-    axios.get('http://localhost:8080/icladdis/viewresult/')
+exports.homeRout = async (req,res)=>{
+   await axios.get('https://iclilaboratory.herokuapp.com/icladdis/viewresult')
     .then(function(response){
         res.render('index',{user:response.data});
     }).catch(err =>{

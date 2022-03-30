@@ -9,9 +9,10 @@ const connectDB = async ()=>{
 
     } catch (error) {
         console.log(error);
-        process.exit(1);
+        // process.exit(1);
     }
 }
 
+// https://iclilaboratory.herokuapp.com/icladdis/viewresult/62440f3d8d3864595ff7a4a0
 
 module.exports = connectDB;
