@@ -37,7 +37,7 @@ exports.find = (req,res) =>{
     .then(data =>{
         res.render('index',{user:data});
     }).catch(err =>{
-        res.status(500).send({message:'error while finding'});
+        res.status(500).render('errorpage');
     })
 } 
 
@@ -52,6 +52,6 @@ exports.detail = (req,res) =>{
         res.render('detail',{user:data});
 
     }).catch(err =>{
-        res.status(500).send({message:'error while finding'});
+        res.status(500).render('errorpage');
     })
 } 

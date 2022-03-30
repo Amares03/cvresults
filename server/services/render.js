@@ -5,6 +5,6 @@ exports.homeRout = (req,res)=>{
     .then(function(response){
         res.render('index',{user:response.data});
     }).catch(err =>{
-        res.send('note found');
+        res.status(404).render('errorpage');
     })
 }
