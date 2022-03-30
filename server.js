@@ -8,7 +8,7 @@ const connectDB = require('./server/database/connection');
 const app = express();
 
 dotenv.config({path:'config.env'});
-const PORT = 8080;
+// const PORT = 'https://iclilaboratory.herokuapp.com/icladdis/viewresult';
 
 //connect to DB
 connectDB();
@@ -30,4 +30,4 @@ app.use( express.static( "views" ) );
 app.use('/',require('./server/routes/router'));
 
 
-app.listen(PORT,()=>{console.log(`server is Running at http://localhost:${PORT}`)});
+app.listen(process.env.PORT || 8080,()=>{console.log(`server is Running at http://localhost:${PORT}`)});
