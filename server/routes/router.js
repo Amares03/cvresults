@@ -6,7 +6,7 @@ const render = require('../services/render');
 
 const router = express.Router();
 
-router.get('/',render.homeRout);
+// router.get('/',render.homeRout);
 
 
 // API
