@@ -23,6 +23,7 @@ app.set("view engine","ejs");
 app.use('/css',express.static(path.resolve(__dirname,"asset/css")));
 app.use('/img',express.static(path.resolve(__dirname,"asset/img")));
 app.use('/js',express.static(path.resolve(__dirname,"asset/js")));
+app.use( express.static( "views" ) );
 
 
 // load routes
