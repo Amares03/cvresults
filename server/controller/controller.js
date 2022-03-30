@@ -1,9 +1,6 @@
 var userdb = require('../model/model');
 
-
-const pdf = require('html-pdf');
 const option = {format:'A4',orientation:'landscape'};
-const fs = require('fs');
 
 exports.create = (req,res)=>{
     if(!req.body){
