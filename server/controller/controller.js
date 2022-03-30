@@ -1,5 +1,6 @@
 var userdb = require('../model/model');
 
+
 const pdf = require('html-pdf');
 const option = {format:'A4',orientation:'landscape'};
 const fs = require('fs');
@@ -51,20 +52,8 @@ exports.detail = (req,res) =>{
     userdb
     .findById(id)
     .then(data =>{
-        // res.render('detail',{user:data});
+        res.render('detail',{user:data});
 
-        res.render('detail',{user:data},function(err,html){
-            pdf.create(html, options).toFile('../public/detail.pdf', function(errr, result) {
-                if (errr) {
-                    return console.log(err);
-                }else{
-                    console.log(res);
-                    var datafile = fs.readFileSync('../public/detail.pdf');
-                    res.header('content-type','application/pdf');
-                    res.send(datafile); 
-                }
-              });
-        })
     }).catch(err =>{
         res.status(500).send({message:'error while finding'});
     })
