@@ -123,11 +123,17 @@ img {
       <h3 class="main-title">Laboratory eReport</h3>
       <div class="image-container">
         <div class="photo">
+          <% if(user.sex == "female"){ %>
           <img
             class="user-image"
             src="/img/women.jpg"
             alt="user-image"
-          />
+          /><%}else{ %>
+            <img
+            class="user-image"
+            src="/img/men.jpg"
+            alt="user-image"
+          /><%}%>
           <p>* Photo not taken during sample collection</p>
         </div>
         <div class="qr">
