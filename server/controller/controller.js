@@ -20,7 +20,7 @@ exports.create = (req,res)=>{
 
     user.save(user)
     .then(data =>{
-        res.send(data._id);
+        res.send(data);
     }).catch(err =>{
         res.status(500).send({message:'error while saving'});
     })
