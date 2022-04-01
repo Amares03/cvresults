@@ -16,7 +16,7 @@ const cvSchema = mongoose.Schema(
     },
     collectedLocation: {
       type: String,
-      default: "ICL -AA1",
+      default: " ICL -AA1",
     },
     dbo: {
       type: String,
