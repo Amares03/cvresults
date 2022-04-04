@@ -34,10 +34,9 @@ exports.find = (req,res) =>{
     }
     const id = req.params.id;
     userdb
-    .find({sampleId:id})
+    .findById(id)
     .then(data =>{
-        // res.render('index',{user:data});
-        res.send(data);
+        res.render('index',{user:data});
     }).catch(err =>{
         res.status(500).render('errorpage');
     })
@@ -52,7 +51,35 @@ exports.detail = (req,res) =>{
     .findById(id)
     .then(data =>{
         res.render('detail',{user:data});
+        
+    }).catch(err =>{
+        res.status(500).render('errorpage');
+    })
+} 
 
+exports.findSample = (req,res) =>{
+    if(!req.body){
+        res.status(400).send({message: 'user cannot be emity'});
+    }
+    const id = req.params.id;
+    userdb
+    .find({sampleId:id})
+    .then(data =>{
+        res.render('index',{user:data[0]});
+    }).catch(err =>{
+        res.status(500).render('errorpage');
+    })
+} 
+exports.sampleDetail = (req,res) =>{
+    if(!req.body){
+        res.status(400).send({message: 'user cannot be emity'});
+    }
+    const id = req.params.id;
+    userdb
+    .find({sampleId:id})
+    .then(data =>{
+        res.render('detail',{user:data[0]});
+        
     }).catch(err =>{
         res.status(500).render('errorpage');
     })
