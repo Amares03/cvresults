@@ -70,17 +70,3 @@ exports.findSample = (req,res) =>{
         res.status(500).render('errorpage');
     })
 } 
-exports.sampleDetail = (req,res) =>{
-    if(!req.body){
-        res.status(400).send({message: 'user cannot be emity'});
-    }
-    const id = req.params.id;
-    userdb
-    .find({sampleId:id})
-    .then(data =>{
-        res.render('detail',{user:data[0]});
-        
-    }).catch(err =>{
-        res.status(500).render('errorpage');
-    })
-} 
