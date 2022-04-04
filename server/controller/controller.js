@@ -8,6 +8,7 @@ exports.create = (req,res)=>{
     }
     const user = new userdb({
         fullName:req.body.fullName,
+        nationality:req.body.nationality,
         passportNum:req.body.passportNum,
         collectedDate:req.body.collectedDate,
         dbo:req.body.dbo,
@@ -33,9 +34,10 @@ exports.find = (req,res) =>{
     }
     const id = req.params.id;
     userdb
-    .findById(id)
+    .find({sampleId:id})
     .then(data =>{
-        res.render('index',{user:data});
+        // res.render('index',{user:data});
+        res.send(data);
     }).catch(err =>{
         res.status(500).render('errorpage');
     })

@@ -40,7 +40,7 @@ const cvSchema = mongoose.Schema(
     },
     reviewedBy: {
       type: String,
-      default: "Dr.mesfin Negussie",
+      // default: "Dr.mesfin Negussie",
     },
     sampleId: {
       type: String,
