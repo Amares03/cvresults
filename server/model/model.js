@@ -10,6 +10,10 @@ const cvSchema = mongoose.Schema(
       type: String,
       default: "",
     },
+    requestedDate: {
+      type: String,
+      default: "",
+    },
     collectedDate: {
       type: String,
       default: "",

@@ -11,6 +11,7 @@ exports.create = (req,res)=>{
         nationality:req.body.nationality,
         passportNum:req.body.passportNum,
         collectedDate:req.body.collectedDate,
+        requestedDate:req.body.requestedDate,
         dbo:req.body.dbo,
         phone:req.body.phone,
         resultDate:req.body.resultDate,
