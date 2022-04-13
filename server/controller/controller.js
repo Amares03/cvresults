@@ -8,11 +8,11 @@ exports.create = (req,res)=>{
     }
     const user = new userdb({
         fullName:req.body.fullName,
-        nationality:req.body.nationality,
         passportNum:req.body.passportNum,
-        collectedDate:req.body.collectedDate,
         requestedDate:req.body.requestedDate,
+        collectedDate:req.body.collectedDate,
         dbo:req.body.dbo,
+        nationality:req.body.nationality,
         phone:req.body.phone,
         resultDate:req.body.resultDate,
         reviewedBy:req.body.reviewedBy,
