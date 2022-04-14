@@ -3,9 +3,29 @@ const path=require('path');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const connectDB = require('./server/database/connection');
+const Handlebars = require('handlebars');
+const hbs = require('express-handlebars');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+// handlebars: allowInsecurePrototypeAccess(Handlebars);
+
 
 
 const app = express();
+// app.engine('hbs', expressHandlebars({ extname: 'hbs', 
+//   defaultLayout: 'mainLayout', 
+//   handlebars: allowInsecurePrototypeAccess(handlebars), 
+//   layoutsDir: __dirname + '/server/controller/' })
+// ); 
+
+    // setup view engine
+    app.engine('hbs', hbs.engine({
+        // extname:'hbs',
+        // defaultLayout: 'layout',
+        // allowProtoMethodsByDefault:'true', 
+        handlebars: allowInsecurePrototypeAccess(Handlebars),
+        // layoutsDir: __dirname + '/server/controller/'
+      }));
+      app.set('view engine', 'handlebars');
 
 dotenv.config({path:'config.env'});
 // const PORT = 'https://iclilaboratory.herokuapp.com/icladdis/viewresult';
