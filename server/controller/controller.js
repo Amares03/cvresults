@@ -7,7 +7,7 @@ var path = require("path");
 var options = {
     base: "http://localhost:8080", // or use: req.protocol + '://' + req.get('host')
     format: "A4",
-    orientation: "portrait",
+    orientation: "landscape",
     border: "0mm",
     // header: {
     //     height: "100px",
@@ -101,8 +101,9 @@ exports.findSample = (req,res) =>{
     })
 } 
 
+
 exports.pdfGenerate = (req,res) =>{
-    var html = fs.readFileSync(path.join(__dirname, "detail.ejs"), "utf8");
+    var html = fs.readFileSync(path.join(__dirname, "../../views/detail.html"), "utf8");
     let document = { ...pdfDocument };
     document.html = html;
     if(!req.body){
