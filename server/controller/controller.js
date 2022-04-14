@@ -7,27 +7,15 @@ var path = require("path");
 var options = {
     base: "http://localhost:8080", // or use: req.protocol + '://' + req.get('host')
     format: "A4",
-    orientation: "landscape",
-    border: "0mm",
-    // header: {
-    //     height: "100px",
-    //     contents: '<div style="text-align: center;">Code Studio</div>'
-    // },
-    // footer: {
-    //     height: "28mm",
-    //     contents: {
-    //         first: 'Cover page',
-    //         2: 'Second page', // Any page number is working. 1-based index
-    //         default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
-    //         last: 'Last Page'
-    //     }
-    // }
+    orientation: "portrait",
+    border: "5mm",
+    
+    
 };
 
 let pdfDocument = {
     html: '',
     data: {},
-    // path: "./output.pdf",
     type: "buffer", // "stream" || "buffer" || "" ("" defaults to pdf)
 };
 
@@ -123,6 +111,7 @@ exports.pdfGenerate = (req,res) =>{
         .catch((error) => {
             res.send(error);
         });
+    
         
     }).catch(err =>{
         res.status(500).render('errorpage'+err);

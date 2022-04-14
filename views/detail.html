@@ -18,7 +18,7 @@ img {
   height: 100%;
 }
 #report {
-  width: 90vw;
+  width: 100%;
   margin: auto;
   max-width: 800px;
 }
@@ -37,6 +37,7 @@ img {
   width: 100px;
   height: 100px;
 }
+
 .stap {
   width: 600px;
   height: 400px;
@@ -149,7 +150,7 @@ img {
           />
           <p>* Photo not taken during sample collection</p>
         </div>
-        <div class="qr">
+        <div class="qr" style="margin-left: 400px;" >
           <img
             class="qr-code"
             src="./img/rq_link.jpg"
@@ -176,7 +177,7 @@ img {
                 <h2> {{user.nationality}}</h2>
               </div>
             </div>
-            <div class="right">
+            <div class="right" style="flex: 1;">
               <div class="details">
                 <p>DOB</p>
                 <h2> {{user.dbo}}</h2>
@@ -251,14 +252,14 @@ img {
             </div>
           </div>
         </div>
-        <!-- <div class="stap1"></div> -->
-        <!-- <div class="stap">
+        <div class="stap1"></div> 
+        <div class="stap">
           <img
           class="stamp"
           src="/img/stamp.png"
           alt="stamp"
         />
-        </div> -->
+        </div>
         
       <p class="footer">
         a negative result does not necessarily exclude infection with the virus
