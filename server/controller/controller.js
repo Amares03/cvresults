@@ -1,8 +1,6 @@
 var userdb = require('../model/model');
-var pdf = require("pdf-creator-node");
-var fs = require("fs");
 var path = require("path");
-
+const pdfService = require('../services/pdf-service');
 
 var options = {
     base: "http://localhost:8080", // or use: req.protocol + '://' + req.get('host')
@@ -90,30 +88,22 @@ exports.findSample = (req,res) =>{
 } 
 
 
-exports.pdfGenerate = (req,res) =>{
-    var html = fs.readFileSync(path.join(__dirname, "../../views/detail.html"), "utf8");
-    let document = { ...pdfDocument };
-    document.html = html;
+exports.pdfGenerate =  (req,res,next)=>{
     if(!req.body){
         res.status(400).send({message: 'user cannot be emity'});
     }
     const id = req.params.id;
     userdb
     .findById(id)
-    .lean()
     .then(data =>{
-        document.data = {user:data};
-        pdf.create(document, options)
-        .then((pdfResp) => {
-            res.contentType("application/pdf");
-            res.send(pdfResp);
-        })
-        .catch((error) => {
-            res.send(error);
+         res.writeHead(200,{
+            'Content-Type':'application/pdf',
+            'Content-Disposition':'attachment;filename=invoice.pdf'
         });
-    
-        
+        pdfService.buildPDF(
+            data );
     }).catch(err =>{
-        res.status(500).render('errorpage'+err);
+        res.status(500).render('errorpage');
     })
 }
+
