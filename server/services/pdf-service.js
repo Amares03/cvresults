@@ -4,7 +4,7 @@ const fs = require("fs");
 const data = { fullName: "Amir" };
 
 function buldPdf() {
-  const pdf = new PDFDocument();
+  const pdf = new PDFDocument({ size: "A4" });
 
   pdf.pipe(fs.createWriteStream("output.pdf"));
 
@@ -29,8 +29,9 @@ function buldPdf() {
     .fontSize(8)
     .text("*Photo not taken during sample collection", 20, 300);
   pdf
-    .image(fs.readFileSync(`${__dirname}/public/rq_link.jpg`), 460, 180, {
-      width: 130,
+    .image(fs.readFileSync(`${__dirname}/public/rq_link.jpg`), 462, 185, {
+      width: 110,
+      height: 110,
     })
     .fontSize(8)
     .text("*Scan the code to verify result", 470, 300, {
@@ -213,10 +214,10 @@ function buldPdf() {
       width: 150,
       height: 0,
     });
+  pdf.end();
 
   // doc.on("data", dataCallback);
   // doc.on("end", endCallback);
-  pdf.end();
 }
 
 module.exports = { buldPdf };
