@@ -1,6 +1,6 @@
 var userdb = require("../model/model");
 var path = require("path");
-const pdfService = require("../services/pdf-service");
+const pdfService = require("../controller/pdf-service");
 
 var options = {
   base: "http://localhost:8080", // or use: req.protocol + '://' + req.get('host')
@@ -96,18 +96,19 @@ exports.pdfGenerate = (req, res, next) => {
   userdb
     .findById(id)
     .then((data) => {
-      //   res.setHeader("Content-Type", "application/pdf");
+      pdfService.buldPdf(data);
+      res.setHeader("Content-Type", "application/pdf");
+      res.sendFile(`${__dirname}/output.pdf`);
       //   res.setHeader("Content-Disposition", "attachment;filename=invoice.pdf");
       //   res.writeHead(200, {
       //     "Content-Type": "application/pdf",
       //     "Content-Disposition": "attachment;filename=invoice.pdf",
       //   });
-      console.log("gettted here");
-      pdfService.buldPdf();
-      console.log("pdf generated");
+      // console.log("gettted here");
+      // console.log("pdf generated");
     })
     .catch((err) => {
       res.status(500).render("errorpage");
-      pdfService.buldPdf();
+      // pdfService.buldPdf();
     });
 };

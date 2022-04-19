@@ -1,12 +1,10 @@
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 
-const data = { fullName: "Amir", sampleId: "wedlla", dbo: "25y" };
-
-function buldPdf() {
+function buldPdf(data) {
   const pdf = new PDFDocument({ size: "A4" });
 
-  pdf.pipe(fs.createWriteStream("output.pdf"));
+  pdf.pipe(fs.createWriteStream(`${__dirname}/output.pdf`));
 
   const fullWidth = 595.28;
   const fullHeight = 841.89;
