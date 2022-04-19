@@ -10,6 +10,7 @@ function buldPdf() {
 
   const fullWidth = 595.28;
   const fullHeight = 841.89;
+
   // fs.readFileSync(`${__dirname}./public/`);
 
   // pdf header content
