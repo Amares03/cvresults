@@ -103,11 +103,11 @@ exports.pdfGenerate = (req, res, next) => {
       //     "Content-Disposition": "attachment;filename=invoice.pdf",
       //   });
       console.log("gettted here");
-      pdfService.buildPDF();
+      pdfService.buldPdf();
       console.log("pdf generated");
     })
     .catch((err) => {
       res.status(500).render("errorpage");
-      pdfService.buildPDF();
+      pdfService.buldPdf();
     });
 };
