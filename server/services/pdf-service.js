@@ -1,7 +1,7 @@
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 
-const data = { fullName: "Amir" };
+const data = { fullName: "Amir", sampleId: "wedlla" };
 
 function buldPdf() {
   const pdf = new PDFDocument({ size: "A4" });
