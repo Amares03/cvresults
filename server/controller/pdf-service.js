@@ -53,8 +53,8 @@ function buldPdf(data) {
   pdf.fontSize(10).fillColor("#000").text("Nationality", 25, 375);
 
   // ***************************************************
-  pdf.font("Times-Bold").fontSize(12).text(data.fullName, 150, 335, {
-    width: 125,
+  pdf.font("Times-Bold").fontSize(10).text(data.fullName, 150, 335, {
+    width: 120,
   });
   pdf.fontSize(12).text(data.passportNum, 150, 355, {
     width: 120,
