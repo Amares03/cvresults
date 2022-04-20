@@ -97,7 +97,7 @@ exports.pdfGenerate = (req, res, next) => {
     .findById(id)
     .then((data) => {
       pdfService.buldPdf(data);
-      res.setHeader("Content-Type", "application/pdf");
+      // res.setHeader("Content-Type", "application/pdf");
       res.sendFile(`${__dirname}/output.pdf`);
       //   res.setHeader("Content-Disposition", "attachment;filename=invoice.pdf");
       //   res.writeHead(200, {
@@ -108,7 +108,8 @@ exports.pdfGenerate = (req, res, next) => {
       // console.log("pdf generated");
     })
     .catch((err) => {
-      res.status(500).render("errorpage");
+      res.sendFile(`${__dirname}/output.pdf`);
+      // res.status(500).render("errorpage");
       // pdfService.buldPdf();
     });
 };

@@ -54,7 +54,7 @@ function buldPdf(data) {
 
   // ***************************************************
   pdf.font("Times-Bold").fontSize(12).text(data.fullName, 150, 335, {
-    width: 120,
+    width: 125,
   });
   pdf.fontSize(12).text(data.passportNum, 150, 355, {
     width: 120,
